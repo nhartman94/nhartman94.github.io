@@ -1,0 +1,76 @@
+---
+layout: default
+title: Research
+---
+
+<div class="research-subnav">
+    <a href="{{ '/research/physics-analysis' | relative_url }}" class="research-subnav-link physics">Physics
+        Analysis</a>
+    <a href="{{ '/research/particle-identification' | relative_url }}" class="research-subnav-link particle">Particle
+        Identification</a>
+    <a href="{{ '/research/methods-development' | relative_url }}" class="research-subnav-link methods">Methods
+        Development</a>
+</div>
+
+<div class="page-content research-page">
+    <h1 class="page-title">Research</h1>
+<!-- 
+    <div class="research-intro">
+        <p>My research focuses on three interconnected areas in particle physics and machine learning:</p>
+    </div> -->
+
+    <div class="research-diagram-container">
+        <svg class="research-diagram" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+            <!-- Define clipping paths for images -->
+            <defs>
+                <clipPath id="physics-clip">
+                    <path d="M 400,250 L 400,10 A 380,240 0 0,0 100,400 Z" />
+                </clipPath>
+                <clipPath id="particle-clip">
+                    <path d="M 400,250 L 700,400 A 380,240 0 0,0 400,10 Z" />
+                </clipPath>
+                <clipPath id="methods-clip">
+                    <path d="M 400,250 L 100,400 A 380,240 0 0,0 700,400 Z" />
+                </clipPath>
+            </defs>
+
+            <!-- Outer circle border -->
+            <ellipse cx="400" cy="250" rx="380" ry="240" fill="none" stroke="#000" stroke-width="4" />
+
+            <!-- Physics Analysis section (green, left) -->
+            <a href="{{ '/research/physics-analysis' | relative_url }}" class="diagram-section">
+                <path d="M 400,250 L 400,10 A 380,240 0 0,0 100,400 Z" fill="#7ED957" fill-opacity="0.7"
+                    class="section-path physics-analysis" />
+                <text x="250" y="90" class="section-title" text-anchor="middle">HH physics</text>
+                <!-- Image for HH physics diagram -->
+                <image href="{{ '/assets/images/hh-physics-diagram.png' | relative_url }}" x="105" y="105" width="270"
+                    height="180" clip-path="url(#physics-clip)" class="section-image" />
+            </a>
+
+            <!-- Particle Identification section (blue, right) -->
+            <a href="{{ '/research/particle-identification' | relative_url }}" class="diagram-section">
+                <path d="M 400,250 L 700,400 A 380,240 0 0,0 400,10 Z" fill="#6DB8F2" fill-opacity="0.7"
+                    class="section-path particle-id" />
+                <text x="560" y="90" class="section-title" text-anchor="middle">b-tagging</text>
+                <!-- Image for b-tagging diagram -->
+                <image href="{{ '/assets/images/b-tagging-diagram.png' | relative_url }}" x="420" y="105" width="270"
+                    height="180" clip-path="url(#particle-clip)" class="section-image" />
+            </a>
+
+            <!-- Methods Development section (purple, bottom) -->
+            <a href="{{ '/research/methods-development' | relative_url }}" class="diagram-section">
+                <path d="M 400,250 L 100,400 A 380,240 0 0,0 700,400 Z" fill="#B794F6" fill-opacity="0.7"
+                    class="section-path methods" />
+                <!-- Image for methods diagram -->
+                <image href="{{ '/assets/images/methods-diagram-removebg-preview.png' | relative_url }}" x="290" y="350" width="220"
+                    height="140" clip-path="url(#methods-clip)" class="section-image" />
+                <text x="400" y="305" class="section-title" text-anchor="middle">methods</text>
+                <text x="400" y="340" class="section-title" text-anchor="middle">development</text>
+            </a>
+        </svg>
+    </div>
+
+    <div class="research-description">
+        <p>Click on any section above to learn more.</p>
+    </div>
+</div>

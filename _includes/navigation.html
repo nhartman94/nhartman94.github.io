@@ -1,0 +1,21 @@
+<nav class="main-nav">
+    <div class="nav-name">
+        <a href="{{ '/' | relative_url }}" class="name-link">
+            <span class="name-text">Nicole Hartman</span>
+            <span class="name-subtitle">Particle Physicist ◆ ML researcher</span>
+        </a>
+    </div>
+    <div class="nav-container">
+        <a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' %}active{% endif %}">About me</a>
+        <a href="{{ '/research' | relative_url }}"
+            class="nav-link {% if page.url contains 'research' %}active{% endif %}">Research</a>
+        <a href="{{ '/publications' | relative_url }}"
+            class="nav-link {% if page.url contains 'publications' %}active{% endif %}">Publications</a>
+        <a href="{{ '/talks' | relative_url }}"
+            class="nav-link {% if page.url contains 'talks' %}active{% endif %}">Talks</a>
+        <a href="{{ '/teaching' | relative_url }}"
+            class="nav-link {% if page.url contains 'teaching' %}active{% endif %}">Teaching</a>
+        <a href="{{ '/miscellaneous' | relative_url }}"
+            class="nav-link {% if page.url contains 'miscellaneous' %}active{% endif %}">Miscellaneous</a>
+    </div>
+</nav>

@@ -1,0 +1,20 @@
+# Site settings
+title: Nicole Hartman
+email: nicole.hartman@tum.de 
+description: >-
+  Particle Physicist & ML Researcher exploring the Higgs boson 
+  through Machine Learning at ATLAS/CERN
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://nhartman94.github.io" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md

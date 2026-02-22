@@ -1,0 +1,148 @@
+---
+layout: default
+title: Methods Development
+---
+
+<div class="research-subnav">
+    <a href="{{ '/research/physics-analysis' | relative_url }}" class="research-subnav-link physics">Physics Analysis</a>
+    <a href="{{ '/research/particle-identification' | relative_url }}" class="research-subnav-link particle">Particle Identification</a>
+    <a href="{{ '/research/methods-development' | relative_url }}" class="research-subnav-link methods active">Methods Development</a>
+</div>
+
+<div class="page-content methods-page">
+    <h1 class="page-title">Methods Development</h1>
+    
+    <!-- <div class="back-link">
+        <a href="{{ '/research' | relative_url }}">← Back to Research Overview</a>
+    </div> -->
+    
+    <div class="research-subpage-section">
+        <h2>Finetuning Foundation Models for Joint Analysis Optimization</h2>
+    
+        <div class="methods-paper-section">
+            <div class="paper-highlight methods-highlight">
+                <p class="paper-citation">
+                    <strong>M. Vigl, NH, L. Heinrich.</strong>
+                    <em>Finetuning Foundation Models for Joint Analysis Optimization</em>.
+                    MLST <strong>5</strong>,
+                    <a href="https://iopscience.iop.org/article/10.1088/2632-2153/ad55a3"
+                        target="_blank">10.1088/2632-2153/ad55a3</a>.
+                </p>
+                <p class="paper-summary">
+                    <strong>Summary:</strong> Combination of neural networks for an end-to-end optimized analysis
+                    (jointly optimizing Higgs jet tagger and downstream event classifier). Proof-of-concept study for
+                    X → HH → 4b suggests a <strong>2x improvement in background rejection</strong>.
+                </p>
+                <p class="paper-contribution">
+                    <strong>Contribution:</strong> I found the dataset and reprocessed it with extra variables needed for
+                    combined training. Mentored M. Vigl on jet tagging and analysis.
+                </p>
+            </div>
+    
+            <div class="califa-images">
+                <img src="{{ '/assets/images/hierarchical-reco.jpg' | relative_url }}" alt="Hierarchical reconstruction pipeline"
+                    class="methods-diagram-large">
+                <p class="image-caption">Hierarchical reconstruction pipeline: from detector hits through tracks, jet clustering,
+                    classification, to final HH analysis.</p>
+            </div>
+
+
+
+            <div class="methods-explanation">
+                <h3>End-to-End Optimization</h3>
+                <p>Traditional analysis pipelines optimize each step independently:</p>
+                <ul>
+                    <li>Step 1: Train jet tagger to identify Higgs bosons</li>
+                    <li>Step 2: Train event classifier using fixed jet tagger outputs</li>
+                </ul>
+                <p>Our approach jointly optimizes both networks together, allowing the jet tagger to learn features
+                    that are specifically useful for the final event classification task. This end-to-end training leads
+                    to significant performance improvements.</p>
+    
+                <h3>Foundation Model Finetuning</h3>
+                <p>We leverage pre-trained foundation models and finetune them for the specific HH → 4b analysis,
+                    demonstrating how transfer learning can be effectively applied to particle physics analyses.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="research-subpage-section">
+        <h2>Hierarchical Clustering for Calorimeter Reconstruction</h2>
+        
+        <div class="methods-paper-section">
+            <div class="paper-highlight methods-highlight">
+                <p class="paper-citation">
+                    <strong>T. Jenegger, NH, R. Gernhäuser, L. Fabbietti, L. Heinrich.</strong> 
+                    <em>Machine learning for the cluster reconstruction in the CALIFA calorimeter at R3B</em>, 
+                    NIM-A, Vol 1082 (2026) 171048, 
+                    <a href="https://doi.org/10.1016/j.nima.2025.171048" target="_blank">10.1016/j.nima.2025.171048</a>.
+                </p>
+                
+            </div>
+            
+            <p class="section-text">
+                In my role with the ORIGINS Data Science Lab (ODSL), I help scientists
+                apply machine learning to their physics problems. 
+                This work is a recent example solving clustering for the NuStar detector at FAIR
+                (Facility for Antiproton and Ion Research), a nucelar physics experiment.
+            </p>
+
+            <div class="califa-content">
+                <div class="methods-explanation">
+                    <h3>Challenge</h3> How can we accurately group together energy depositions that came from a single photon?
+                    
+                    <h3>Method Overview</h3>
+                    <p>This two-stage approach combines classical clustering algorithms with neural networks:</p>
+                    <ul>
+                        <li><strong>Stage 1:</strong> Agglomerative clustering groups nearby calorimeter hits based on spatial proximity
+                        </li>
+                        <li><strong>Stage 2:</strong> Edge detection neural network refines cluster boundaries and separates overlapping
+                            energy depositions</li>                            
+                    </ul>
+                    <p>This new algorithm crucially benefits from the hit time information
+                        previously not exploited for photon clustering.
+                    </p>
+
+                    <h3>Result</h3>
+                    We improved the cluster reconstruction efficiency of more than 30%, 
+                    a key step forward for data analysis for these types of nuclear physics experiments.
+                </div>
+
+                <div class="califa-result">
+                    <img src="{{ '/assets/images/CALIFA-img.jpg' | relative_url }}" alt="CALIFA clustering results" class="methods-diagram-small">
+                    <p class="image-caption">
+                        Cluster reconstruction in the CALIFA calorimeter.
+                        Each marker represents a detected hit, with the edge color indicating the true cluster assignment,
+                        and the fill color is assignment from the baseline algorithm. 
+                        The baseline mistakenly splits the photon at (θ,ɸ) ≈ (0.6 rad, 2.7 rad) into a separate cluster (blue and yellow clusters), 
+                        while the Agglo+Edge method correctly assigns all hits to the proper clusters for this event.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="research-subpage-section">
+        <h2>Other Methods Work</h2>
+        
+        <div class="other-methods">
+
+            <h3>Foundation model for jet tagging</h3>
+            <p>We're increase the size and input flexibility beyond ever before for our b-jet tagging models.
+                See the <a href="{{ '/research/particle-identification' | relative_url }}">Particle Identification</a> page for more
+                details.</p>
+
+            <h3>Normalizing Flows for Background Estimation</h3>
+            <p>Developed novel normalizing flow methods for high-dimensional background interpolation in blinded signal regions. 
+            See the <a href="{{ '/research/physics-analysis' | relative_url }}">Physics Analysis</a> page for more details.</p>
+            
+            <!-- <h3>Deep Learning Architectures</h3>
+            <p>Pioneered the use of Deep Sets and RNNs for jet flavor tagging.
+                See the <a href="{{ '/research/particle-identification' | relative_url }}">Particle Identification</a> page for more
+                details.</p> -->
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,167 @@
+---
+layout: default
+title: Physics Analysis - HH Physics
+---
+
+<div class="research-subnav">
+    <a href="{{ '/research/physics-analysis' | relative_url }}" class="research-subnav-link physics active">Physics Analysis</a>
+    <a href="{{ '/research/particle-identification' | relative_url }}" class="research-subnav-link particle">Particle Identification</a>
+    <a href="{{ '/research/methods-development' | relative_url }}" class="research-subnav-link methods">Methods Development</a>
+</div>
+
+<div class="page-content physics-analysis-page">
+    <h1 class="page-title">Physics Analysis: di-Higgs</h1>
+    
+    <!-- <div class="back-link">
+        <a href="{{ '/research' | relative_url }}">← Back to Research Overview</a>
+    </div> -->
+    
+    <div class="research-subpage-section">
+        <h2>Why</h2>
+        
+        <div class="physics-content-grid">
+            <div class="physics-text">
+                <h3>The Standard Model</h3>
+                <p>The Standard Model is our current reigning theory for describing the tiniest building blocks of the universe. 
+                    <!-- As a linchpin of the Standard Model, the Higgs boson describes how these fundamental particles acquire mass.  -->
+                And yet… somehow the Standard Model seems to leave us with more questions than answers… such as: 
+                    <i>What is the nature of dark matter?
+                    Could the structure encoded in the particles and their interactions hold a clue to a deeper theory? How do neutrinos
+                    get their mass?</i> and <i>How could gravity fit into this quantum story?</i> </p>
+
+                Due to the centrality of the Higgs boson in the Standard Model, understanding its properties and interactions is key to answering these questions.
+                </p>
+            </div>
+            
+            <div class="physics-images">
+                <img src="{{ '/assets/images/standard-model.png' | relative_url }}" alt="Standard Model Particles" class="physics-diagram">
+                <p class="image-source">Source: <a href="https://www.quantamagazine.org/why-do-matter-particles-come-in-threes-a-physics-titan-weighs-in-20200330/" target="_blank">Quanta magazine</a></p>
+                <!-- <img src="{{ '/assets/images/sm-bsm.jpg' | relative_url }}" alt="Standard Model to BSM" class="physics-diagram"> -->
+            </div>
+        </div>
+
+        <!-- The shape of the Higgs potential encodes 
+        <!-- the mechanism of electroweak symmetry breaking and  -->
+        <!-- the origin of mass. 
+        Any deviation from the expected shape could indicate new physics beyond the
+        Standard Model, such as new particles or forces that couple to the Higgs field. 
+        Therefore, precise measurements of the Higgs potential are crucial for testing the Standard Model and probing for new physics. -->
+
+        <div class="physics-text">
+            <h3>The Higgs Potential</h3>
+            The particles that mediate the weak force get their mass from interactions with the Higgs boson, or more specifically
+            its field<sup>1</sup>. This field has a potential energy, known as the <strong style="color: navy;">Higgs
+                potential</strong> (figure below). While V(φ) is symmetric about φ=0, its large value at φ=0 is an unstable
+            equilibrium. Through <em>electroweak symmetry breaking</em> (EWSB) our universe "rolls down" this potential hill to
+            select a new local extremum in which the weak bosons acquire mass. This theory necessitates the existence of a new
+            massive particle, the Higgs boson, experimentally discovered in 2012 at the LHC.</p>
+            
+            <p>While this formula for the Higgs potential offers a consistent description for the matter content of the universe, it
+                is merely an ansatz which has yet to be experimentally verified. Due to the centrality of the Higgs in particle
+                physics and implications of this potential for the future stability of the universe, <strong>understanding the
+                    nature of EWSB is key to understanding nature, and one of the most pressing questions in particle
+                    physics.</strong></p>
+        </div>
+        <img src="{{ '/assets/images/hh-physics-diagram.png' | relative_url }}" alt="Higgs Potential Diagram"
+            class="physics-diagram" style="width: 60%;  display: block; margin: 0 auto;">
+       
+        <div class="physics-text"></div>
+            <p class="tiny"><sup>1</sup>Imagine this field as an ocean. Excitations in a sea are waves, and excitations of the
+                Higgs field are Higgs bosons.</p>
+        </div>
+
+    <!-- </div> -->
+    
+    <div class="research-subpage-section">
+        <h2>What</h2>
+        
+        <div class="what-section">
+            <img src="{{ '/assets/images/particle-collision.jpg' | relative_url }}" alt="Particle Collision at ATLAS" class="collision-image">
+            
+            <div class="what-text">
+                <h3>Di-Higgs Production (HH)</h3>
+                <p>A first measurement of this potential could be obtained by the simultaneous production of two Higgs bosons (``di-Higgs’'
+                or HH), an exceptionally rare process. Of the 40 million proton-proton collisions that happen each second at the LHC, <i>we
+                simultaneously produce two Higgs bosons only once per hour</pi>.
+                Different shapes for the potential would give different HH production rates and kinematics, providing a clear signal if
+                this potential deviates from the current expection.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="research-subpage-section">
+        <h2>Key result: $HH \rightarrow 4b$ non-resonant analysis</h2>
+        
+        <div class="publication-highlight">
+            <p class="publication-citation">
+                <strong>ATLAS Collaboration.</strong> "Search for non-resonant pair production of Higgs bosons in the 4b final state using 126 fb⁻¹ of pp collision data at √s = 13 TeV with the ATLAS detector." 
+                <em>Phys. Rev. D</em> <strong>108</strong> (2023) 052003, 
+                <a href="https://doi.org/10.1103/PhysRevD.108.052003" target="_blank">10.1103/PhysRevD.108.052003</a></p>
+        </div>
+
+
+        <figure style="text-align: center;">
+            <img id="cutflow-gif" src="{{ '/assets/images/cutflow-animation.gif' | relative_url }}" alt="Cutflow Animation"
+                class="physics-diagram" style="width: 80%; cursor: pointer;"
+                onclick="this.src = this.src.split('?')[0] + '?' + new Date().getTime();">
+            <figcaption style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 0.5rem;">
+                Click to replay animation
+            </figcaption>
+        </figure>
+
+        <h3>My Contributions:</h3>
+        <ul>
+            <li>Optimized analysis selection decreasing the combinatorial background by 70%. These optimizations and better
+                b-taggers improved the analysis sensitivity by 30% compared to what was expected from a larger dataset.</li>
+            <li>Designed new validation regions to provide state-of-the-art understanding of analysis' data-driven modeling
+                uncertainties.</li>
+            <li>Internal note editor: coordinated / summarized the work of O(50) people for analysis review.</li>
+        </ul>
+
+        <!-- My research program  -->
+
+        <h3>How did we do?</h3>
+
+        <figure style="text-align: center;">
+            <img src="{{ '/assets/images/Run2-limit.pdf' | relative_url }}" alt="Run 2 Limit" class="physics-diagram"
+                style="width: 70%; display: block; margin: 0 auto;">
+            <figcaption style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
+                Figure from: ATLAS Collaboration. "Search for non-resonant pair production of Higgs bosons in the 4b final
+                state"
+                <em>Phys.Lett.B</em> <strong>843</strong> (2023) 137745,
+                <a href="https://doi.org/10.1016/j.physletb.2023.137745" target="_blank">10.1016/j.physletb.2023.137745</a></p>
+
+            </figcaption>
+        </figure>
+        
+    </div>
+    
+    <div class="research-subpage-section">
+        <h3>What's next</h3>
+        <p>
+            The central challenge to this analysis is estimating the all hadronic background, 
+            which is challenging to simulate from first principles.
+            In the above paper, we used a NN to reweight between two distributions.
+
+            The details of this method are in the last <a href="{{ '/assets/Hartman_flows.pdf' | relative_url }}" target="_blank">chapter of my PhD thesis</a>
+.
+        </p>
+    </div>
+    
+    <div class="research-subpage-section">
+        <h2>Ongoing Work</h2>
+        
+        <h3>SH → 4b (analysis unblinded and finalizing approval)</h3>
+        <ul>
+            <li>First ATLAS analysis to use the novel normalizing flows background estimate I developed in my PhD.</li>
+        </ul>
+        
+        <h3>HH → 4b (ongoing with larger dataset)</h3>
+    </div>
+
+    How else can we improve our physics?
+    <div class="back-link">
+            <a href="{{ '/research/particle-identification' | relative_url }}">→ Find out more about my work improving the particle identificaion</a>
+    </div>
+
+</div>

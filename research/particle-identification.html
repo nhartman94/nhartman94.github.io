@@ -1,0 +1,367 @@
+---
+layout: default
+title: Particle Identification - b-tagging
+---
+
+<div class="research-subnav">
+    <a href="{{ '/research/physics-analysis' | relative_url }}" class="research-subnav-link physics">Physics Analysis</a>
+    <a href="{{ '/research/particle-identification' | relative_url }}" class="research-subnav-link particle active">Particle Identification</a>
+    <a href="{{ '/research/methods-development' | relative_url }}" class="research-subnav-link methods">Methods Development</a>
+</div>
+
+<div class="page-content particle-id-page">
+    <h1 class="page-title">Particle Identification: b-tagging</h1>
+    
+    <!-- <div class="back-link">
+        <a href="{{ '/research' | relative_url }}">← Back to Research Overview</a>
+    </div> -->
+    
+    <div class="research-subpage-section">
+        <h2>Why b-tagging</h2>
+    
+        <div class="particle-content-grid">
+            <div class="particle-text">
+                
+                <h3>What are jets?</h3>
+
+                <p class="section-text">
+                Quarks and gluons are make up proton and neutrons and hold them together.
+                However, we can never isolate a single quark, 
+                when we produce them at the Large Hadron Collider (LHC) they instead create 
+                a collimated sprays of particles or ``jets'', as illustrated on the right.</p>
+                <figure style="text-align: center;">    
+                    <img src="{{ '/assets/images/proton-quarks.png' | relative_url }}" alt="proton-quarks" class="proton" width="200pt"
+                        loading="lazy">
+                </figure>
+                
+                <p class="section-text">Identifying the type of quark that initiated a jet is crucial for understanding which physics processes are occurring in our collisions. 
+`               The most common way for a Higgs boson to decay is into a pair of b-quarks,
+                making b-jet identification the key ingredient to understand the Higgs boson.
+                </p>
+
+            </div>
+
+            <div class="particle-images">
+                <figure style="text-align: center;">
+                    <img src="{{ '/assets/images/jet-sm.png' | relative_url }}" alt="CMS detector jet visualization"
+                        class="particle-diagram" loading="lazy">
+                    <figcaption style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
+                        Illustration of a jet inside a detector.
+                        Purple lines indicate the charged particle trajectories,
+                        while the tan and green blocks indicate energy deposits in the calorimeters.
+                        <br>
+                        <em>Source:
+                            <a href="https://www.quantumdiaries.org/2011/06/01/anatomy-of-a-jet-in-cms/" target="_blank">QM
+                                Diaries</a>.</em>
+                    </figcaption>
+            </div>
+        </div>
+
+            <div class="particle-content-grid">
+                <div class="particle-text">
+                
+                <h3>What's special about b-jets?</h3>
+
+                <p class="section-text">
+                    
+                    b-quarks have a ``long'' lifetime by particle physics standards ($10^{-12}$ seconds), 
+                    which means they travel few mm before decaying into other particles (see right).
+
+                    The innermost layers detector closest to the collision point are most
+                    important for b-jet identification.
+                    Our workhorse b-tagging model considers these charged particle trajectories 
+                    as the set of inputs to a transformer encoder architecture that classifies the jet's flavor.
+                </p>
+
+                <p class="section=text">
+                    Also, b-jets have broader showers compared to other types of quarks, 
+                    and often will include include leptons (electrons and muons) from the b-hadron decay.
+                    Recently have extended the transformer inputs to also include more inputs to also leverage this information.
+                </p>
+                
+            </div>
+            
+            <div class="particle-images">
+                <figure style="text-align: center;">
+                    <img src="{{ '/assets/images/b-hadron-decay.png' | relative_url }}" 
+                    alt="B-jet track reconstruction"
+                    class="particle-diagram"
+                        >
+                    <figcaption style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
+                        B-hadron decay showing displaced tracks from the secondary vertex. 
+                        <a href="https://link.springer.com/article/10.1007/JHEP09(2010)056" target="_blank">JHEP 09 (2010) 056</a>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <p class="section-text">
+            Below, I highlight my work in $b$-jet identifcation over the years, in reverse chronological order.
+        </p>
+
+    </div>
+    
+    <div class="research-subpage-section">
+        <h2>Carpe Datum: scaling up our models and datasets</h2>
+        
+        <div class="paper-highlight particle-highlight">
+            <p class="paper-citation">
+                <strong>ATLAS Collaboration.</strong> <em>Carpe Datum: Scaling behavior of transformers for heavy hadron flavor identification</em> 
+                <a href="https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-SOFT-PUB-2026-002/" target="_blank">ATL-SOFT-PUB-2026-002</a> (2026).
+            </p>
+        </div>
+        
+        <p class="section-text">
+        As a native of Dallas, TX, ``bigger is better'' is something of a cultural motto.
+        Turns out, this fits right in with the ML mantra of today as well, 
+        as the recent wave of success of large language models is primarily driven by the size of the larger models and datasets.
+        This work, we show that the same holds true for $b$-jet classification.
+        We use <a href="https://arxiv.org/abs/2203.15556" target="_blank">neural scaling laws</a> 
+        to predict these performance gains, allowing us to 
+         predict the performance of future, larger models without having to train them.
+         Additionally, we can extrapolate to infinite data to estimate the performance limit
+         for a fixed feature set.   
+        </p>
+
+        <p class="section-text">    
+            This work doensn't only <em>predict</em> the performance of larger models, 
+            but verifies these predictions in practice.
+            <strong>We produced the largest dataset ever for jet classification for particle physics</strong>,
+            and verfied the predicted performance agreed with the neural scaling law prediction. 
+            This paves the way to next steps for building up a massive dataset for a foundation model for particle physics.
+        </p>
+        <!-- In this work, we make  -->
+
+        <figure style="text-align: center;">
+            <img src="https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-SOFT-PUB-2026-002/fig_07.png"
+                alt="Scaling behavior with more data" class="scaling-plot">
+            <figcaption style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
+                Performance improvements with increased training data demonstrate the scaling behavior of transformer-based taggers.
+            </figcaption>
+        </figure>
+
+    </div>
+
+    In our follow-up work we repeated the study to use neural scaling laws to predict the saturation point on the popular 
+    <a href="https://doi.org/10.5281/zenodo.6619768" target="_blank">JetClass</a> public benchmark.
+    
+    
+    <div class="paper-highlight particle-highlight">
+        <p class="paper-citation">
+            M. Vigl, <strong>NH</strong>, Michael Kagan, L. Heinrich
+            <em>Neural Scaling Laws for Boosted Jet Tagging</em>
+            <a href="https://arxiv.org/abs/2602.15781" target="_blank">2602.15781</a>, submitted to Foundation Models for
+            Science ICLR workshop (2026).
+        </p>
+    </div>
+
+    <!-- Turns out... (more details in Fig 3 of above paper) -->
+
+
+    <div class="research-subpage-section">
+        <h2>Towards Multi-modal Inputs: GN3</h2>
+        
+        <div class="paper-highlight particle-highlight">
+            <p class="paper-citation">
+                <strong>ATLAS Collaboration.</strong> <em>GN3: Multi-task, Multi-modal Transformers for Jet Flavour Tagging in ATLAS</em> 
+                <a href="https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2026-001/" target="_blank">ATL-PHYS-PUB-2026-001</a> (2026).
+            </p>
+        </div>
+        
+
+        <img src="{{ '/assets/images/GN2-GN3-heat.jpg' | relative_url }}" 
+        alt="GN2 vs GN3 architecture comparison"
+        style="width: 100%; display: block; margin: 0 auto;">
+
+        <p>
+        <br>
+        In my PhD and early post-doc, the group used to developed custom deep learning models for each type of 
+        particle ID task. For example, b-jet classification focused on the tracks in the innermost detector, 
+        while quark vs. gluon classification focused on the energy deposits in the calorimeters.
+        In this work, we introduced the GN3 archiecture which now significantly increases the inputs
+        to include the caloritmer energy deposits and the lepton information, in addition to the tracks.
+        </p>
+
+        <p>
+            The improvement in performance was an impressive two-fold decrease in the mis-id rate,
+            and the flexible input representations constitutes an important step forward toward a foundation model for jet physics.
+        </p>
+       
+    </div>
+    
+    <div class="research-subpage-section">
+        <h2>Transformers for Particle identification</h2>
+        
+        <div class="paper-highlight particle-highlight">
+            <p class="paper-citation">
+                <strong>ATLAS Collaboration.</strong> <em>Transforming Jet Flavour Tagging at ATLAS</em>, 
+                Nature Commun. 17 (2026) 541 <a href="https://doi.org/10.1038/s41467-025-65059-6"
+                    target="_blank">10.1038/s41467-025-65059-6</a>.
+            </p>
+        </div>
+
+        <p class="paper-contribution">
+            First end-to-end track-based tagger (GN2, transformer) recommended for physics analyses.
+            <strong>Contribution:</strong> I led the development of track-based taggers in my PhD with RNNs and Deep Set.
+            All the innovations I introduced for the Deep Set (new variables, optimized track selection) propagated to this
+            SOTA transformer. I also led the team as we finalized GN2.
+        </p>
+        
+        <img src="{{ '/assets/images/ftag-fig-01.png' | relative_url }}" alt="ATLAS Flavor Tagging Figure"
+            class="physics-diagram" style="width: 70%; display: block; margin: 0 auto;">
+    
+    </div>
+    
+    <div class="research-subpage-section">
+        <h2>Deep Sets</h2>
+        
+        <div class="paper-highlight particle-highlight">
+            <p class="paper-citation">
+                <strong>ATLAS Collaboration.</strong> <em>Deep Sets based Neural Networks for Impact Parameter Flavour Tagging in ATLAS</em> 
+                <a href="https://cds.cern.ch/record/2718948" target="_blank">ATL-PHYS-PUB-2020-014</a> (2020).
+            </p>
+            <p class="paper-contribution">
+                <strong>Contribution:</strong> Developed a new Deep Sets-based tagger. Optimized selection resulted in 
+                <em>2x improvement in background rejection</em> compared to the RNN.
+            </p>
+        </div>
+        
+        <div class="particle-content-grid">
+            <div class="particle-text">
+                <h3>Model the jet as a set</h2>
+        
+                    <p class="section-text">
+        
+                    A deep set architecture is natively designed to handle unordered sets of inputs.
+                    In this work, we specialized this architecture for b-tagging, following the work of 
+                    <a href="https://arxiv.org/abs/1810.05165" target="_blank">Komiske et. al.</a>
+
+                    Since this network can parallelize the computation across the tracks in the jet, 
+                    an added benefit was that the <strong>deep set tagger was 4x faster to train than the RNN</strong>.
+
+                    My additional optimizations included more input variables and a looser track quality selection, which improved the background rejection by a factor of two compared to the RNN tagger.  
+                
+                    </p>
+        
+                    
+        
+            </div>
+        
+            <div class="particle-images">
+                <img src="{{ '/assets/images/dips-graphic.png' | relative_url }}" alt="DIPS" class="particle-diagram">
+            </div>
+        </div>
+    
+    
+    
+    </div>
+    
+    <div class="research-subpage-section">
+        <h2>Recurrent Neural Networks (RNN)</h2>
+        
+        <div class="paper-highlight particle-highlight">
+            <p class="paper-citation">
+                <strong>ATLAS Collaboration.</strong> "ATLAS b-tagging algorithms for the LHC Run 2 dataset." 
+                Eur. Phys. J. C 83 (2023) 681 <a href="https://arxiv.org/abs/2211.16345" target="_blank">2211.16345</a> 
+                <strong> 700 citations</strong>.
+            </p>
+            <p class="paper-contribution">
+                <strong>Contribution:</strong> Optimized Recurrent Neural Network (RNN) tagger: first time RNN was recommended for physics analyses. 
+                This new tagger resulted in a <em>10% improvement in the non-resonant HH→4b analysis</em>.
+            </p>
+        </div>
+        
+        <p class="section-text">
+        Traditionally, b-tagging was done with hand-engineered features explicitly reconstructing the displaced vertex and the associated kinematics.
+        </p>
+        <div class="particle-content-grid">
+            <div class="particle-text">
+                <h3>Model the jet as a sequence</h2>
+
+                <p class="section-text">
+                    
+                    The RNN is an ML-based approach that could automatically identify
+                    In this model, we think of the tracks in the jet similarly to the words in a sentence, 
+                    and the RNN can natively handle the variable number of tracks in the jet and 
+                    leverage the correlations between tracks to identify the b-jets.
+                </p>
+
+                <p class="section-text">
+                
+                    The RNN is an ML-based approach that could automatically identify
+                    In this model, we think of the tracks in the jet similarly to the words in a sentence,
+                    and the RNN can natively handle the variable number of tracks in the jet and
+                    leverage the correlations between tracks to identify the b-jets.
+                </p>
+
+            </div>
+        
+            <div class="particle-images">
+                <img src="{{ '/assets/images/RNN-graphic.pdf' | relative_url }}" 
+                alt="Higgs jet img" class="particle-diagram"
+                style="width: 500px; height: 400px; object-fit: cover; object-position: center;">
+            </div>
+        </div>
+
+        <p class="section-text">
+            I trained the first RNN-based b-tagger ready for physics analyses.
+            This new RNN-based model had a 10% sensitivity improvement for the non-resonant HH→4b analysis.
+            <!-- This was the first ML-based jet classifier used in ATLAS -->
+        </p>
+
+    </div>
+    
+    <div class="research-subpage-section">
+        <h2>Optimizations for Variable Radius Track Jets</h2>
+        
+        <div class="paper-highlight particle-highlight">
+            <p class="paper-citation">
+                <strong>ATLAS Collaboration.</strong> "Performance of 2019 recommendations of ATLAS Flavor Tagging algorithms with Variable Radius track jets" 
+                <a href="http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PLOTS/FTAG-2019-006/" target="_blank">FTAG-2019-006</a> (2019).
+            </p>
+        </div>
+        
+        <div class="research-subpage-section">
+                
+            <div class="particle-content-grid">
+                <div class="particle-text">
+                    <p class="section-text">
+                        For very energetic Higgs bosons, the b-decay products become so collimated that 
+                        it becomes challenging to resolve the b decay products into two separate jets.
+                        A solution introduced by <a href="https://doi.org/10.1088/1126-6708/2009/06/059" target="_blank">Krohn et. al</a> 
+                        of ``variable radius'' track jets lets the size of the jet adapt based on its estimated momentum.
+                        (Sketch on the right.) </p>
+                        
+                    <p class="section-text">
+                        I optimized the RNN-based b-tagger for this new jet collection, 
+                        which resulted in a significant improvement for boosted Higgs analyses.
+                        The specific improvement for HH→4b is shown in the plot below...
+                        an up to 50\% improvement in the analysis sensitivity.
+                    </p>
+                </div>
+        
+                <div class="particle-images">
+                    <img src="{{ '/assets/images/higgs-jet.png' | relative_url }}" alt="Higgs jet img"
+                        class="particle-diagram" style="width: 400px;">
+                </div>
+            </div>
+        </div>
+
+        <figure style="text-align: center;">
+            <img src="{{ '/assets/images/HH4b-boosted-vr-trk-jet-improvements.pdf' | relative_url }}" alt="VR track jet improvements"
+                class="physics-diagram" style="width: 70%; display: block; margin: 0 auto;">
+            <figcaption style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
+                Performance improvements in the non-resonant HH→4b analysis with the variable radius track jets tagger I trained in my phd.
+                The grey line is the result from the previous analysis 
+                <a href="https://doi.org/10.1007/JHEP01%282019%29030" target="_blank">JHEP 01 (2019) 030</a>
+                 which used the standard fixed radius track jets (and no dedicated b-jet classifier training).
+                The black line shows the expected improvement of this result expected if we had only had increased the size of the dataset. 
+                The blue line shows actual 139 result from 
+                <a href="https://doi.org/10.1103/PhysRevD.105.092002" target="_blank">Phys. Rev. D 105 (2022) 092002</a> 
+                whichshows gains over the expectation from the dedicated b-tagger I retrained for VR track jets.
+                <em>Image from <a href="https://repository.cern/records/ar4jh-s6058" target="_blank">my thesis</a> (Fig 6.28).</em>
+            </figcaption>
+        </figure>
+    
+    </div>
+</div>
